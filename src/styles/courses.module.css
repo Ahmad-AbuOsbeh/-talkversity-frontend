@@ -1,0 +1,53 @@
+.bigContainer {
+  padding: 2rem;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.card {
+  border: #193498 solid 0.2rem;
+  padding: 0.5rem;
+  margin: 1rem;
+  width: 20%;
+  border-radius: 1rem;
+}
+
+.name {
+  color: #193498;
+  height: 2rem;
+  text-align: center;
+  position: relative;
+  top: -1rem;
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  height: 2rem;
+}
+
+.spandelete {
+  cursor: pointer;
+}
+.price {
+  text-align: center;
+}
+
+.place {
+  text-align: center;
+}
+
+.priceSpan {
+  color: #193498;
+}
+
+.welcomingMsg {
+  text-align: center;
+}

@@ -4,5 +4,6 @@
 
 body {
   background-color: #1597e5;
-  color: bisque;
+  background-image: linear-gradient(to right, #1597e5, #1597e5, #69dadb);
+  color: aliceblue;
 }

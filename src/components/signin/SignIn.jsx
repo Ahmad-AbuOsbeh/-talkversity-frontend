@@ -70,17 +70,17 @@ function SignIn() {
           auth: userCredentials,
         }
       );
-      console.log('response', response.data);
       dispatch(isLoggedInAction(response.data.user));
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('name', response.data.user.username);
+      localStorage.setItem('role', response.data.user.role);
+      window.location.href = '/';
       handleClose();
     } catch (e) {
       alert('username or password incorrect!');
       console.log('Log in error', e.message);
     }
   };
-  useEffect(() => {
-    console.log('userCredentials', userCredentials);
-  }, [userCredentials]);
 
   // handleChange
   const handleChange = (e) => {
@@ -119,13 +119,7 @@ function SignIn() {
                 <TextField id='standard-error' onChange={(e) => handleChange(e)} label='password' name='password' defaultValue={''} variant='outlined' />
               </div>
 
-              <Button
-                variant='contained'
-                size='large'
-                type='submit'
-                className={classes.Closebutton}
-                //  startIcon={<CloseIcon />}
-              >
+              <Button variant='contained' size='large' type='submit' className={classes.Closebutton}>
                 Login
               </Button>
               <div>

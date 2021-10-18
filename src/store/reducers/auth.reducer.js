@@ -1,8 +1,10 @@
+// initial State
 const initialState = {
   isLoggedIn: false,
   user: null,
 };
 
+//auth Reducer
 const authReducer = (state = initialState, action) => {
   const { type, payload } = action;
 

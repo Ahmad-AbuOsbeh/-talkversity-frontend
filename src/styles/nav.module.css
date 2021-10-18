@@ -2,17 +2,25 @@
   background-color: #193498 !important;
   height: 5rem !important;
   color: aliceblue !important;
+  vertical-align: middle !important;
 }
 
 .label {
   color: aliceblue !important;
+  vertical-align: middle !important;
 }
 .icon {
   color: aliceblue;
-  margin-bottom: 0.5rem !important;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 2rem;
+  width: 2rem;
 }
 
 .login {
+  height: 2rem;
+  width: 2rem;
+}
+
+.image {
+  position: relative;
+  right: 20rem;
 }

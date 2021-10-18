@@ -1,8 +1,10 @@
+// initial State
 const initialState = {
   showSignInForm: false,
   showSignUp: false,
 };
 
+// signIn Reducer
 const signInReducer = (state = initialState, action) => {
   const { type } = action;
 

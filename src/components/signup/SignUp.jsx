@@ -64,17 +64,15 @@ function SignUp() {
     try {
       e.preventDefault();
       const response = await instance.post('/signup', userData);
-      console.log('response', response.data);
       dispatch(isLoggedInAction(response.data.user));
-
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('name', response.data.user.username);
+      localStorage.setItem('role', response.data.user.role);
       handleClose();
     } catch (e) {
       console.log('Log in error', e.message);
     }
   };
-  useEffect(() => {
-    console.log('userData', userData);
-  }, [userData]);
 
   // handleChange
   const handleChange = (e) => {
