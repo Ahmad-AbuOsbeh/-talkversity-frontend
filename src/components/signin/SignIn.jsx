@@ -10,7 +10,7 @@ import LoginIcon from '@mui/icons-material/Login';
 
 import instance from '../../API/axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { showHideSignInAction, showHideSignUpAction } from '../../store/actions';
+import { showHideSignInAction, showHideSignUpAction, isLoggedInAction } from '../../store/actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,6 +71,7 @@ function SignIn() {
         }
       );
       console.log('response', response.data);
+      dispatch(isLoggedInAction(response.data.user));
       handleClose();
     } catch (e) {
       alert('username or password incorrect!');

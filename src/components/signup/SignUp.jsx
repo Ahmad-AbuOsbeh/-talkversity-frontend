@@ -10,7 +10,7 @@ import { Button, TextField, InputLabel, FormControl, MenuItem, Select } from '@m
 
 import instance from '../../API/axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { showHideSignUpAction } from '../../store/actions';
+import { showHideSignUpAction, isLoggedInAction } from '../../store/actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,6 +65,8 @@ function SignUp() {
       e.preventDefault();
       const response = await instance.post('/signup', userData);
       console.log('response', response.data);
+      dispatch(isLoggedInAction(response.data.user));
+
       handleClose();
     } catch (e) {
       console.log('Log in error', e.message);
