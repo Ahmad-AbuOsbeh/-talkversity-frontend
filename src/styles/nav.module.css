@@ -1,0 +1,18 @@
+.bigBox {
+  background-color: #193498 !important;
+  height: 5rem !important;
+  color: aliceblue !important;
+}
+
+.label {
+  color: aliceblue !important;
+}
+.icon {
+  color: aliceblue;
+  margin-bottom: 0.5rem !important;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.login {
+}
