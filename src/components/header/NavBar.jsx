@@ -8,7 +8,7 @@ import { MdMenuBook, MdOutlineAdminPanelSettings, MdLogin } from 'react-icons/md
 import LogoutIcon from '@mui/icons-material/Logout';
 import { showHideSignInAction, logOutAction } from '../../store/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter } from 'react-router-dom';
 import logo from '../../images/large_talkversity.png';
 
 function NavBar() {
@@ -19,12 +19,12 @@ function NavBar() {
 
   // homePageHnadler
   function homePageHnadler() {
-    window.location.href = '/';
+    // window.location.href = '/';
   }
 
   // adminPageHandler
   function adminPageHandler() {
-    window.location.href = '/admin';
+    // window.location.href = '/admin';
   }
 
   // loginHandler
@@ -38,30 +38,36 @@ function NavBar() {
     localStorage.clear();
   }
   return (
-    <Box sx={{ width: '100%' }}>
-      <BottomNavigation
-        showLabels
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-        className={styles.bigBox}
-      >
-        <img src={logo} alt='' className={styles.image} />
+    <BrowserRouter>
+      <Box sx={{ width: '100%' }}>
+        <BottomNavigation
+          showLabels
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          className={styles.bigBox}
+        >
+          <img src={logo} alt='' className={styles.image} />
 
-        <BottomNavigationAction label='Courses' icon={<MdMenuBook className={styles.icon} />} className={styles.label} onClick={homePageHnadler}></BottomNavigationAction>
+          <BottomNavigationAction href='/' label='Courses' icon={<MdMenuBook className={styles.icon} />} className={styles.label} onClick={homePageHnadler}>
+            <Link to='/'></Link>
+          </BottomNavigationAction>
 
-        {state.user?.role === 'admin' && (
-          <BottomNavigationAction label='Admin' icon={<MdOutlineAdminPanelSettings className={styles.icon} />} className={styles.label} onClick={adminPageHandler}></BottomNavigationAction>
-        )}
+          {state.user?.role === 'admin' && (
+            <BottomNavigationAction href='/admin' label='Admin' icon={<MdOutlineAdminPanelSettings className={styles.icon} />} className={styles.label} onClick={adminPageHandler}>
+              <Link to='/admin'></Link>
+            </BottomNavigationAction>
+          )}
 
-        {!state.isLoggedIn ? (
-          <BottomNavigationAction label='Login' icon={<MdLogin className={`${styles.icon} ${styles.login}`} />} className={styles.label} onClick={logInHandler} />
-        ) : (
-          <BottomNavigationAction label='Log out' icon={<LogoutIcon className={`${styles.icon} ${styles.login}`} />} className={styles.label} onClick={logOutHandler} />
-        )}
-      </BottomNavigation>
-    </Box>
+          {!state.isLoggedIn ? (
+            <BottomNavigationAction label='Login' icon={<MdLogin className={`${styles.icon} ${styles.login}`} />} className={styles.label} onClick={logInHandler} />
+          ) : (
+            <BottomNavigationAction label='Log out' icon={<LogoutIcon className={`${styles.icon} ${styles.login}`} />} className={styles.label} onClick={logOutHandler} />
+          )}
+        </BottomNavigation>
+      </Box>
+    </BrowserRouter>
   );
 }
 

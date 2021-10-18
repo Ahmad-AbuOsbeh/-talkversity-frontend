@@ -18,7 +18,7 @@ function Home() {
           <Route exact path='/'>
             <Courses />
           </Route>
-          <Route exact path='/admin'>
+          <Route path='/admin'>
             <AdminPage />
           </Route>
         </Switch>
